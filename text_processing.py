@@ -34,6 +34,10 @@ def normalize(input_string):
              'extra space'
     """
     normalized_string = None
+    input_string.strip() # 문자열의 양 옆 공백 제거
+    input_string.replace("  ", " ") # 문자열의 두 칸 이상의 공백을 한 칸으로 변환
+    input_string.lower() # 문자열을 소문자로 변환
+    normalized_string = input_string
     return normalized_string
 
 
@@ -59,4 +63,7 @@ def no_vowels(input_string):
             ''W lv Pythn!'
     """
     no_vowel_string = None
+    for i in range(input_string):
+        if i not in ('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'):
+            no_vowel_string += i
     return no_vowel_string
