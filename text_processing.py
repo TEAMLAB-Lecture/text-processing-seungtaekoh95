@@ -33,11 +33,14 @@ def normalize(input_string):
              >>> tp.normalize(input_string2)
              'extra space'
     """
-    normalized_string = None
-    input_string.lower() # 문자열을 소문자로 변환
-    input_string.strip() # 문자열의 양 옆 공백 제거
-    input_string.replace("  ", " ") # 문자열의 두 칸 이상의 공백을 한 칸으로 변환
-    normalized_string = input_string
+    normalized_string = ''
+    input_string = input_string.lower()
+    input_string = input_string.strip()
+    if input_string != '':
+        array = input_string.split()
+        for s in array[:-1]:
+            normalized_string += s+' '
+        normalized_string += array[-1]
     return normalized_string
 
 
@@ -63,7 +66,8 @@ def no_vowels(input_string):
             ''W lv Pythn!'
     """
     no_vowel_string = None
+    array = 'aeiouAEIOU'
     for i in range(input_string):
-        if i not in ('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'):
+        if i not in array:
             no_vowel_string += i
     return no_vowel_string
